@@ -25,9 +25,7 @@ const PlayersNameForm = () => {
 
 	const form = useForm<z.infer<typeof playerNameSchema>>({
 		resolver: zodResolver(playerNameSchema),
-		defaultValues: {
-			name: "",
-		},
+		defaultValues: { name: "" },
 	});
 
 	function onSubmit(values: z.infer<typeof playerNameSchema>) {
@@ -37,15 +35,17 @@ const PlayersNameForm = () => {
 	}
 
 	return (
-		<Card className="w-[500px]">
+		<Card className="max-w-lg w-full p-6 shadow-lg mx-auto">
 			<CardHeader>
-				<CardTitle>Enter Your Name</CardTitle>
+				<CardTitle className="text-center text-xl font-semibold">
+					Enter Your Name
+				</CardTitle>
 			</CardHeader>
 			<CardContent>
 				<Form {...form}>
 					<form
 						onSubmit={form.handleSubmit(onSubmit)}
-						className="space-y-8"
+						className="space-y-6"
 						autoComplete="off"
 					>
 						<FormField
@@ -56,18 +56,22 @@ const PlayersNameForm = () => {
 									<FormLabel>Name</FormLabel>
 									<FormControl>
 										<Input
-											placeholder="Enter your name defaults to anonymous"
+											placeholder="Enter your name (defaults to Anonymous)"
 											{...field}
+											aria-label="Enter your name"
+											className="w-full"
 										/>
 									</FormControl>
 									<FormDescription>
-										Name would be in the high score section.
+										Your name will appear in the high score section.
 									</FormDescription>
 									<FormMessage />
 								</FormItem>
 							)}
 						/>
-						<Button type="submit">Let&apos;s Play</Button>
+						<Button type="submit" className="w-full">
+							Let&apos;s Play 🎮
+						</Button>
 					</form>
 				</Form>
 			</CardContent>
