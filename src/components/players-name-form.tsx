@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
 	Form,
 	FormControl,
-	FormDescription,
 	FormField,
 	FormItem,
 	FormLabel,
@@ -62,9 +61,6 @@ const PlayersNameForm = () => {
 											className="w-full"
 										/>
 									</FormControl>
-									<FormDescription>
-										Your name will appear in the high score section.
-									</FormDescription>
 									<FormMessage />
 								</FormItem>
 							)}
